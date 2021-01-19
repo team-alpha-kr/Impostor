@@ -84,7 +84,7 @@ namespace Impostor.Server.Net
                             await DisconnectAsync(DisconnectReason.Banned);
                             break;
                         case GameJoinError.GameFull:
-                            await DisconnectAsync(DisconnectReason.GameFull);
+                            await DisconnectAsync(DisconnectReason.Custom, "참여하시려는 게임은 꽉 찼습니다.");
                             break;
                         case GameJoinError.InvalidLimbo:
                             await DisconnectAsync(DisconnectReason.Custom, "Invalid limbo state while joining.");
@@ -99,7 +99,7 @@ namespace Impostor.Server.Net
                             await DisconnectAsync(DisconnectReason.Custom, result.Message);
                             break;
                         default:
-                            await DisconnectAsync(DisconnectReason.Custom, "Unknown error.");
+                            await DisconnectAsync(DisconnectReason.Custom, "알수없는 오류.");
                             break;
                     }
 
